@@ -1,5 +1,5 @@
 /* Javascript for VoFXBlock. */
-function VoFXBlock(runtime, element, settings) {
+function TLIXBlock(runtime, element, settings) {
 
     var $ = window.jQuery;
     var $element = $(element);

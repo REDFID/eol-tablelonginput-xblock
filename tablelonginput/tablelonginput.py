@@ -38,10 +38,10 @@ class tablelonginputXBlock(XBlock):
     )
 
     texto_falso = String(
-        display_name="Falso",
+        display_name="Label respuesta",
         help="Texto que ve el estudiante en el Falso",
         scope=Scope.settings,
-        default="F"
+        default="Respuesta"
     )
 
     texto_header = String(
@@ -195,7 +195,6 @@ class tablelonginputXBlock(XBlock):
                 'preguntas': lista_pregs,
                 'respuestas': self.respuestas,
                 'theme': self.theme,
-                'texto_verdadero': self.texto_verdadero,
                 'texto_falso': self.texto_falso,
                 'texto_header': self.texto_header,
                 'texto_correcto': self.texto_correcto,
@@ -221,7 +220,7 @@ class tablelonginputXBlock(XBlock):
         )
         frag = self.build_fragment(
             template,
-            initialize_js_func='tablelonginputXBlock',
+            initialize_js_func='TLIXBlock',
             additional_css=[
                 'public/css/tablelonginput.css',
             ],
@@ -244,7 +243,6 @@ class tablelonginputXBlock(XBlock):
                 'display_name': self.display_name,
                 'preguntas': lista_pregs,
                 'location': self.location,
-                'texto_verdadero': self.texto_verdadero,
                 'texto_falso': self.texto_falso,
                 'texto_header': self.texto_header,
                 'weight': self.weight,
@@ -260,7 +258,7 @@ class tablelonginputXBlock(XBlock):
         )
         frag = self.build_fragment(
             template,
-            initialize_js_func='tablelonginputEditBlock',
+            initialize_js_func='TLIEditBlock',
             additional_js=[
                 'public/js/tablelonginput_studio.js',
             ],

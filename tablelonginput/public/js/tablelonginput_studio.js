@@ -1,4 +1,4 @@
-function VoFEditBlock(runtime, element) {
+function TLIEditBlock(runtime, element) {
     $(element).find('.save-button').bind('click', function(eventObject) {
       eventObject.preventDefault();
       var handlerUrl = runtime.handlerUrl(element, 'studio_submit');
@@ -59,7 +59,6 @@ function VoFEditBlock(runtime, element) {
       nueva_pregunta += '<div class="wrapper-comp-setting">';
       nueva_pregunta += '<label class="label setting-label" for="valor">Valor</label>';
       nueva_pregunta += '<select name="valor" valor-id="'+nueva_id+'">';
-      nueva_pregunta += '<option value="V" selected>Verdadero</option>';
       nueva_pregunta += '<option value="F">Falso</option>';
       nueva_pregunta += '</select>';
       nueva_pregunta += '</div>';
