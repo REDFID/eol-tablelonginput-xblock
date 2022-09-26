@@ -1,0 +1,118 @@
+{% load i18n %}
+<div class="problem vof_block {{theme}} problems-wrapper">
+  <h3 class="vof-header problem-header">{{ display_name }}</h3>
+  <div class="problem-progress">{{ problem_progress }}</div>
+  {% if show_correctness != 'never'  or indicator_class == 'unanswered' %}
+    <div class="status {{ indicator_class }}" id="status_{{ location }}">
+  {% else %}
+    <div class="status " id="status_{{ location }}">
+  {% endif %}
+  </div>
+    {% if no_mas_intentos or preguntas|length == 0 %}
+      <div class="tablagrande noclick" id="vftable2">
+    {% else %}
+      <div class="tablagrande" id="vftable2">
+    {% endif %}
+    {% if theme == 'Media' %}
+      <div class="dtrow first">
+        <div class="dtcell1 first" style="text-align:center;">
+            <strong>{{ texto_header|safe }}</strong>
+        </div>
+        <div class="dtcell2 first">
+            {{ texto_falso }}
+        </div>
+      </div>
+      {% for key, value in preguntas %}
+            <div class="dtrow">
+                <div class="dtcell1">{{value.enunciado|safe}}</div>
+                <div class="dtcell2">
+                  <input pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" value="falso"/>
+                </div>
+            </div>
+      {% endfor %}
+    {% elif theme == 'RedFid' %}
+      <div class="dtrow first">
+        <div class="dtcell1 first" style="text-align:center;">
+            <strong>{{ texto_header|safe }}</strong>
+        </div>
+        <div class="dtcell2 first">
+            {{ texto_falso }}
+        </div>
+      </div>
+      {% for key, value in preguntas %}
+                      <div class="dtrow">
+                          <div class="dtcell1">{{value.enunciado|safe}}</div>
+                          <div class="dtcell2">
+                            <input pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" value="falso"/>
+                          </div>
+                      </div>
+      {% endfor %}
+    {% else %}
+      {% if texto_header != '' %}
+      <div class="dtrow">
+          <div class="dtcell1" style="text-align: center;"><strong>{{ texto_header|safe }}</strong></div>
+          <div class="dtcell2">
+          </div>
+      </div>
+      {% endif %}
+      {% for key, value in preguntas %}
+                      <div class="dtrow">
+                          <div class="dtcell1">{{value.enunciado|safe}}</div>
+                          <div class="dtcell2">
+                            <input pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" value="falso"/>
+                          </div>
+                      </div>
+      {% endfor %}
+    {% endif %}
+    </div>
+  <div class="divrespuestas">
+      {% for key, value in respuestas.items %}
+        {% if value != 'nada'%}
+        <input type="hidden" class="lasrespuestas" respuesta-id={{key}} value="{{value}}">
+        {% endif %}
+      {% endfor %}
+  </div>
+  <div class="elticket">
+    {%if respondido and show_correctness != 'never'%}
+      {%if score >= 1%}
+        <img src="{{ image_path }}correct-icon.png"/>
+      {% elif score <= 0 %}
+        <img src="{{ image_path }}incorrect-icon.png"/>
+      {% else %}
+        <img src="{{ image_path }}partial-icon.png"/>
+      {%endif%}
+    {% endif%}
+  </div>
+  <div class="action">
+            {% if no_mas_intentos or preguntas|length == 0 %}
+              <button class="check Submit submit" data-checking="Enviando..." data-value="Enviar" aria-describedby="submission_feedback_{{ location }}" disabled="disabled">
+            {% elif is_past_due or not respondido %}
+              <button class="check Submit submit" data-checking="Enviando..." data-value="Enviar" aria-describedby="submission_feedback_{{ location }}" disabled="disabled">
+            {% else %}
+              <button class="check Submit submit" data-checking="Enviando..." data-value="Enviar" aria-describedby="submission_feedback_{{ location }}">
+            {% endif %}
+                <span>Enviar</span>
+              </button>
+              <span id="submission_feedback_{{ location }}" class="submission-feedback">
+                {{texto_intentos}}
+              </span>
+            {% if show_answers == 'Mostrar' and show_correctness != 'never' %}
+              <button class="ver_respuesta" data-checking="Cargando..." data-value="Ver Respuesta">
+                <span class="icon fa fa-info-circle" aria-hidden="true"></span></br>
+                <span>Mostrar<br/>Respuesta</span>
+              </button>
+            {% elif show_answers == 'Finalizado' and no_mas_intentos and show_correctness != 'never' %}
+              <button class="ver_respuesta" data-checking="Cargando..." data-value="Ver Respuesta">
+                <span class="icon fa fa-info-circle" aria-hidden="true"></span></br>
+                <span>Mostrar<br/>Respuesta</span>
+              </button>
+            {% elif show_answers == 'Finalizado' and respondido and nro_de_intentos <= 0 and show_correctness != 'never' %}
+              <button class="ver_respuesta" data-checking="Cargando..." data-value="Ver Respuesta">
+                <span class="icon fa fa-info-circle" aria-hidden="true"></span></br>
+                <span>Mostrar<br/>Respuesta</span>
+              </button>
+            {% endif %}
+  </div>
+      <div class="notificacion" tabindex="-1">
+      </div>
+</div>
