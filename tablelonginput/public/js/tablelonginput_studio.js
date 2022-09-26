@@ -56,12 +56,6 @@ function TLIEditBlock(runtime, element) {
       nueva_pregunta += '<label class="label setting-label" for="pregunta">Pregunta</label>';
       nueva_pregunta += '<input class="input setting-input" name="pregunta" pregunta-id="'+nueva_id+'" value="Escribe el enunciado" type="text" />';
       nueva_pregunta += '</div>';
-      nueva_pregunta += '<div class="wrapper-comp-setting">';
-      nueva_pregunta += '<label class="label setting-label" for="valor">Valor</label>';
-      nueva_pregunta += '<select name="valor" valor-id="'+nueva_id+'">';
-      nueva_pregunta += '<option value="F">Falso</option>';
-      nueva_pregunta += '</select>';
-      nueva_pregunta += '</div>';
       nueva_pregunta += '<div class="action-item">';
       nueva_pregunta += '<a href="#" borrar-id="'+nueva_id+'" class="button action-primary borrar-button">Borrar</a>';
       nueva_pregunta += '</div>';
