@@ -27,7 +27,7 @@ class tablelonginputXBlock(XBlock):
         display_name="Display Name",
         help="Nombre del componente",
         scope=Scope.settings,
-        default="Eol True or False XBlock"
+        default="Eol Table long input XBlock"
     )
 
     texto_verdadero = String(
@@ -215,7 +215,7 @@ class tablelonginputXBlock(XBlock):
             }
         )
         template = loader.render_django_template(
-            'public/html/vof.html',
+            'public/html/tablelonginput.html',
             context=Context(context),
             i18n_service=self.runtime.service(self, 'i18n'),
         )
