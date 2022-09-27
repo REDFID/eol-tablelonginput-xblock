@@ -55,7 +55,7 @@
                           <div class="dtcell2">
                             {% with findeans="My Page" %}
                               {% for iter, ans in respuestas.items %}
-                                {% if iter|string == key|string %}
+                                {% if iter == key %}
                                   {% set findeans = ans %}
                                 {%endif%}
                               {% endfor %}
