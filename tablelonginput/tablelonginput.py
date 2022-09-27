@@ -73,7 +73,7 @@ class tablelonginputXBlock(XBlock):
     )
 
     #preguntas
-    preguntas = Dict(default={'1':{'enunciado':'¿1+1=2?', 'valor': True}, '2':{'enunciado':'Un triángulo tiene 4 lados', 'valor':False}},
+    preguntas = Dict(default={'1':{'enunciado':'¿1+1=2?'}, '2':{'enunciado':'Un triángulo tiene 4 lados'}},
                  scope=Scope.settings,
                  help="Lista de preguntas del V o F")
     #respuestas del estudiante
