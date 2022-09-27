@@ -108,7 +108,7 @@ function TLIXBlock(runtime, element, settings) {
             });
         }
         var resp,resps = [];
-        $element.find('.radiovof:checked').each(function() { // run through each of the checkboxes
+        $element.find('.student_answer').each(function() { // run through each of the checkboxes
             resp = {
               name: $(this).attr('pregunta-id'),
               value: $(this).val()
