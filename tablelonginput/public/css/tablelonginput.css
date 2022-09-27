@@ -134,7 +134,7 @@
 }
 .tli_block .tablagrande .botonResponderchico{margin: 0;}
 .tli_block .tablagrande [class^=dtrow]{display: table-row;color:#727277; }
-.tli_block .tablagrande [class^=dtcell]{display: table-cell;text-align: left;vertical-align: middle;background-color: #fff;box-sizing: border-box;padding: 10px 25px;position: relative;}
+.tli_block .tablagrande [class^=dtcell]{display: table-cell;text-align: left;vertical-align: middle;background-color: #fff;box-sizing: border-box;padding: 25px 25px;position: relative;}
 .tli_block .tablagrande .dtrowh [class^=dtcell]{padding: 10px 25px; }
 .tli_block .tablagrande .dtcell1{width: 500px;}
 .tli_block .tablagrande .dtcell2{width: 80px;}
