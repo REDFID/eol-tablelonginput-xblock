@@ -53,22 +53,20 @@
                       <div class="dtrow">
                           <div class="dtcell1">{{value.enunciado|safe}}</div>
                           <div class="dtcell2">
-                            {% with findeans="My Page" %}
-                              {% for iter, ans in respuestas.items %}
-                                {% if iter == key %}
-                                  {% findeans = ans %}
-                                {%endif%}
-                              {% endfor %}
-                              {% if respondido %}
-                                {% if no_mas_intentos %}
-                                  <p>{{ findeans }}</p>
-                                {% else %}
-                                  <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" >{{ findeans }}</textarea>
-                                {% endif %}
+                            {% for iter, ans in respuestas.items %}
+                              {% if iter|string() == key|string() %}
+                                {% set findeans = ans|string() %}
+                              {%endif%}
+                            {% endfor %}
+                            {% if respondido %}
+                              {% if no_mas_intentos %}
+                                <p>{{ findeans }}</p>
                               {% else %}
-                                <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" />
+                                <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" >{{ findeans }}</textarea>
                               {% endif %}
-                            {% endwith %}
+                            {% else %}
+                              <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" />
+                            {% endif %}
                           </div>
                       </div>
       {% endfor %}
