@@ -284,7 +284,7 @@ class tablelonginputXBlock(XBlock):
             for e in data['respuestas']:
                 idpreg = e['name']
                 miresp = e['value']
-                nuevas_resps = miresp
+                #nuevas_resps[idpreg] = miresp
                 buenas+=1
 
 
