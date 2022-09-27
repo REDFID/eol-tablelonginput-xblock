@@ -287,9 +287,8 @@ class tablelonginputXBlock(XBlock):
                 nuevas_resps = miresp
                 buenas+=1
 
-            #si no llego nada no lo actualizo
-            if nuevas_resps:
-                self.respuestas = nuevas_resps
+
+            self.respuestas = nuevas_resps
 
             #puntaje
             self.score = 1
