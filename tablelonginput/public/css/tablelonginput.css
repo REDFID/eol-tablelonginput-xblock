@@ -349,7 +349,7 @@
 .tli_block.RedFid .tablagrande [class^=dtrow]:only-child [class^=dtcell2]:last-child{border-radius: 0 16px 16px 0;}
 
 .tli_block.RedFid .tablagrande .dtrow [class^=dtcell]{
-    padding: 0px 25px;
+    padding: 25px 25px;
 }
 .tli_block.RedFid .tablagrande .dtrow.first [class^=dtcell]{
     padding: 10px 25px; 
