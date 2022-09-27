@@ -246,7 +246,7 @@
 .tli_block.Media .tablagrande [class^=dtrow]:only-child [class^=dtcell2]:last-child{border-radius: 0 15px 15px 0;}
 
 .tli_block.Media .tablagrande .dtrow [class^=dtcell]{
-    padding: 0px 25px;
+    padding: 25px 25px;
 }
 .tli_block.Media .tablagrande .dtrow.first [class^=dtcell]{
     padding: 10px 25px; 
