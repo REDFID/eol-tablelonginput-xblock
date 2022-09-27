@@ -9,6 +9,10 @@ XBlock to display "Suma y Sigue" and "Media" inputs questions in tables in the [
 
     > cd .github/
     > docker-compose run lms /openedx/requirements/eol-table-longinput-xblock/.github/test.sh
+    
+## Install
+
+    Add "tablelonginput" in the Advance module list in your studio
 
 # Screenshots
 ![Screenshot-example](tablelonginput/examples/example1.png?style=center)
