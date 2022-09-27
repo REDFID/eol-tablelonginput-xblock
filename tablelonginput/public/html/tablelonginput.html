@@ -29,7 +29,7 @@
                   {% set findeans="" %}
                   {% for iter, ans in respuestas.items %}
                     {% if iter|string == key|string %}
-                      {% findeans = ans|str %}
+                      {% findeans = ans|string %}
                     {%endif%}
                   {% endfor %}
                   {% if respondido %}
@@ -60,7 +60,7 @@
                             {% set findeans="" %}
                             {% for iter, ans in respuestas.items %}
                               {% if iter|string == key|string %}
-                                {% findeans = ans|str %}
+                                {% findeans = ans|string %}
                               {%endif%}
                             {% endfor %}
                             {% if respondido %}
@@ -90,7 +90,7 @@
                             {% set findeans="" %}
                             {% for iter, ans in respuestas.items %}
                               {% if iter|string == key|string %}
-                                {% findeans = ans|str %}
+                                {% findeans = ans|string %}
                               {%endif%}
                             {% endfor %}
                             {% if respondido %}
