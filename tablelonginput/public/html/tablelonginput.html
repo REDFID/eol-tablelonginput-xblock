@@ -60,7 +60,11 @@
                           <div class="dtcell1">{{value.enunciado|safe}}</div>
                           <div class="dtcell2">
                             {% if respondido %}
-                              <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" >{respuestas.items[key]}</textarea>
+                              {% if no_mas_intentos %}
+                                <p>{ respuestas.items[key] }</p>
+                              {% else %}
+                                <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" >{ respuestas.items[key] }</textarea>
+                              {% end %}
                             {% else %}
                               <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" />
                             {% endif %}
