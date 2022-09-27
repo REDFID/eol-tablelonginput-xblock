@@ -280,14 +280,10 @@ class tablelonginputXBlock(XBlock):
             buenas = 0.0
             malas = 0.0
             total = len(self.preguntas)
-            for e in data['respuestas']:
-                #WARNING: No sé por qué esto llega como string y se guarda como string en el studio_submit
-                print(e)
-                idpreg = e['name']
-                miresp = ''
-                print("id" + str(idpreg))
-                print("e: " + str(e['value']) )
-                buenas+=1
+
+            for iter, res in self.preguntas:
+                self.respuestas[iter] = res['value']
+                buenas += 1
 
             #si no llego nada no lo actualizo
             if nuevas_resps:
