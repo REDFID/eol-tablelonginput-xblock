@@ -281,13 +281,14 @@ class tablelonginputXBlock(XBlock):
             malas = 0.0
             total = len(self.preguntas)
 
-            for iter, res in self.preguntas:
-                self.respuestas[iter] = res['value']
-                buenas += 1
+            for e in data['respuestas']:
+                idpreg = e['name']
+                miresp = e['value']
+                nuevas_resps[idpreg] = miresp
+                buenas+=1
 
-            #si no llego nada no lo actualizo
-            if nuevas_resps:
-                self.respuestas = nuevas_resps
+
+            self.respuestas = nuevas_resps
 
             #puntaje
             self.score = 1
