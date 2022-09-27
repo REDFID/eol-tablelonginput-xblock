@@ -26,7 +26,6 @@
             <div class="dtrow">
                 <div class="dtcell1">{{value.enunciado|safe}}</div>
                 <div class="dtcell2">
-                  {% set findeans="" %}
                   {% if respondido %}
                     {% if no_mas_intentos %}
                       <p>{{ findeans }}</p>
@@ -54,7 +53,6 @@
                       <div class="dtrow">
                           <div class="dtcell1">{{value.enunciado|safe}}</div>
                           <div class="dtcell2">
-                            {% set findeans="RedFid" %}
                             {% if respondido %}
                               {% if no_mas_intentos %}
                                 <p>{{ findeans }}</p>
@@ -79,7 +77,6 @@
                       <div class="dtrow">
                           <div class="dtcell1">{{value.enunciado|safe}}</div>
                           <div class="dtcell2">
-                            {% set findeans="" %}
                             {% if respondido %}
                               {% if no_mas_intentos %}
                                 <p>{{ findeans }}</p>
