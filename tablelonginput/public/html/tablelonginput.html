@@ -60,6 +60,7 @@
                             {% else %}
                               <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" />
                             {% endif %}
+                          </div>
                       </div>
       {% endfor %}
     {% else %}
@@ -88,11 +89,13 @@
       {% endfor %}
     {% endif %}
     </div>
-  {% for key, value in respuestas.items %}
-    {% if value != 'nada'%}
-      <p>{{key}} ] {{value}}<p>
-    {% endif %}
-  {% endfor %}
+<br/>
+{% for key, value in respuestas.items %}
+{% if value != 'nada'%}
+  <p>{{key}} ] {{value}}<p>
+{% endif %}
+{% endfor %}
+<br/>
   <div class="divrespuestas">
       {% for key, value in respuestas.items %}
         {% if value != 'nada'%}
