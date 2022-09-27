@@ -12,60 +12,24 @@ function TLIXBlock(runtime, element, settings) {
 
     function updateText(result) {
         //reviso si estoy mostrando correctitud
-        if(result.show_correctness != 'never'){
-            //actualizo el texto de correcto o incorrecto
-            if(result.score >= 1){
-                $element.find('.notificacion').html('');
-                $element.find('.notificacion').removeClass('lineaarriba');
-                $element.find('.notificacion').removeClass('incorrecto');
-                $element.find('.notificacion').removeClass('dontshowcorrectness');
-                $element.find('.notificacion').removeClass('parcial');
-                $element.find('.notificacion').addClass('correcto');
-                $element.find('.notificacion.correcto').addClass('lineaarriba');
-                $element.find('.notificacion.correcto').html('<img src="'+settings.image_path+'correct-icon.png"/>'+result.texto);
-                $element.find('.elticket').html('<img src="'+settings.image_path+'correct-icon.png"/>');
-            }
-            else{
-                $element.find('.notificacion').html('');
-                $element.find('.notificacion').removeClass('lineaarriba');
-                $element.find('.notificacion').removeClass('correcto');
-                $element.find('.notificacion').removeClass('dontshowcorrectness');
-                $element.find('.notificacion').removeClass('parcial');
-                $element.find('.notificacion').addClass('incorrecto');
-                $element.find('.notificacion.incorrecto').addClass('lineaarriba');
-                if(result.score > 0){
-                    $element.find('.notificacion.incorrecto').addClass('parcial');
-                    $element.find('.notificacion.incorrecto').html('<img src="'+settings.image_path+'partial-icon.png"/>'+result.texto);
-                    $element.find('.elticket').html('<img src="'+settings.image_path+'partial-icon.png"/>');
-                }
-                else{
-                    $element.find('.notificacion.incorrecto').html('<img src="'+settings.image_path+'incorrect-icon.png"/>'+result.texto);
-                    $element.find('.elticket').html('<img src="'+settings.image_path+'incorrect-icon.png"/>');
-                }
-            }
+        
+        statusDiv.removeClass('correct');
+        statusDiv.removeClass('incorrect');
+        statusDiv.removeClass('unanswered');
+        //no deberia pasar pero por si las moscas
+        if(result.indicator_class == 'unanswered')
+            statusDiv.addClass('unanswered');
+        $element.find('.notificacion').html('');
+        $element.find('.notificacion').removeClass('lineaarriba');
+        $element.find('.notificacion').removeClass('correcto');
+        $element.find('.notificacion').removeClass('incorrecto');
+        $element.find('.notificacion').removeClass('parcial');
+        $element.find('.notificacion').addClass('dontshowcorrectness');
+        $element.find('.notificacion.dontshowcorrectness').addClass('lineaarriba');
+        $element.find('.notificacion.dontshowcorrectness').html('<span class="icon fa fa-info-circle" aria-hidden="true"></span>Respuesta enviada.');
+        $element.find('.notificacion.correcto').html('<img src="'+settings.image_path+'enviado.png"/>');
+        $element.find('.elticket').html();
 
-            statusDiv.removeClass('correct');
-            statusDiv.removeClass('incorrect');
-            statusDiv.removeClass('unanswered');
-            statusDiv.addClass(result.indicator_class);
-        }
-        else{
-            statusDiv.removeClass('correct');
-            statusDiv.removeClass('incorrect');
-            statusDiv.removeClass('unanswered');
-            //no deberia pasar pero por si las moscas
-            if(result.indicator_class == 'unanswered')
-                statusDiv.addClass('unanswered');
-            $element.find('.notificacion').html('');
-            $element.find('.notificacion').removeClass('lineaarriba');
-            $element.find('.notificacion').removeClass('correcto');
-            $element.find('.notificacion').removeClass('incorrecto');
-            $element.find('.notificacion').removeClass('parcial');
-            $element.find('.notificacion').addClass('dontshowcorrectness');
-            $element.find('.notificacion.dontshowcorrectness').addClass('lineaarriba');
-            $element.find('.notificacion.dontshowcorrectness').html('<span class="icon fa fa-info-circle" aria-hidden="true"></span>Respuesta enviada.');
-            $element.find('.elticket').html();
-        }
 
         //desactivo el boton si es que se supero el nro de intentos
         var finalice = false;
