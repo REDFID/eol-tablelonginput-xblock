@@ -14,6 +14,12 @@ from xblockutils.resources import ResourceLoader
 from xblock.fragment import Fragment
 import datetime
 import pytz
+from django import template
+register = template.Library()
+
+@register.simple_tag
+def setvar(val=None):
+  return val
 
 utc=pytz.UTC
 
