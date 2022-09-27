@@ -126,7 +126,7 @@ class tablelonginputXBlock(XBlock):
     show_answer = String(
         display_name = "Mostrar Respuestas",
         help = "Si aparece o no el boton mostrar respuestas",
-        default = "Finalizado",
+        default = "Ocultar",
         values = ["Mostrar", "Finalizado", "Ocultar"],
         scope = Scope.settings
     )
