@@ -53,7 +53,7 @@
                       <div class="dtrow">
                           <div class="dtcell1">{{value.enunciado|safe}}</div>
                           <div class="dtcell2">
-                            {% findeans="RedFid" %}
+                            {{ findeans = "RedFid" }}
                             {% for iter, ans in respuestas.items %}
                               {% if iter|string == key|string %}
                                 {% findeans = ans|string %}
