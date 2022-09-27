@@ -89,6 +89,11 @@
       {% endfor %}
     {% endif %}
     </div>
+  {% for key, value in respuestas.items %}
+    {% if value != 'nada'%}
+      <p>{{key}} ] {{value}}<p>
+    {% endif %}
+  {% endfor %}
   <div class="divrespuestas">
       {% for key, value in respuestas.items %}
         {% if value != 'nada'%}
