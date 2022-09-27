@@ -136,9 +136,9 @@
 .tli_block .tablagrande [class^=dtrow]{display: table-row;color:#727277; }
 .tli_block .tablagrande [class^=dtcell]{display: table-cell;text-align: left;vertical-align: middle;background-color: #fff;box-sizing: border-box;padding: 25px 25px;position: relative;}
 .tli_block .tablagrande .dtrowh [class^=dtcell]{padding: 10px 25px; }
-.tli_block .tablagrande .dtcell1{width: 500px;}
-.tli_block .tablagrande .dtcell2{width: 80px;}
-.tli_block .tablagrande .dtcell3{width: 80px;}
+.tli_block .tablagrande .dtcell1{width: 450px;}
+.tli_block .tablagrande .dtcell2{width: 350px;}
+.tli_block .tablagrande .dtcell3{width: 350px;}
 .tli_block .tablagrande .dtcell4{width: 150px;}
 .tli_block .tablagrande .dtcell8 .respfrac{left: 120px;top:53px;}
 .tli_block .tablagrande [class^=dtrow]:first-child [class^=dtcell1]:first-child{border-radius: 10px 0 0 0;}
