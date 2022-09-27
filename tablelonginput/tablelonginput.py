@@ -271,6 +271,7 @@ class tablelonginputXBlock(XBlock):
         """
         Responder el V o F
         """
+        print("Revisar Long Input ")
         #Reviso si no estoy haciendo trampa y contestando mas veces en paralelo
         max_attempts_fixed = self.max_attempts if self.max_attempts else self.attempts + 1 # Fix max attempts None
         if ((self.attempts + 1) <= max_attempts_fixed) or max_attempts_fixed <= 0:
@@ -281,30 +282,19 @@ class tablelonginputXBlock(XBlock):
             total = len(self.preguntas)
             for e in data['respuestas']:
                 #WARNING: No sé por qué esto llega como string y se guarda como string en el studio_submit
+                print(e)
                 idpreg = e['name']
                 miresp = ''
-                if e['value'] == 'verdadero':
-                    miresp = True
-                    nuevas_resps[idpreg] = 'verdadero'
-                elif e['value'] == 'falso':
-                    miresp = False
-                    nuevas_resps[idpreg] = 'falso'
-                if miresp != self.preguntas[idpreg]['valor']:
-                    texto = self.texto_incorrecto
-                    malas+=1
-                else:
-                    buenas+=1
-                
-            malas = (total-buenas)
-            if malas > 0:
-                texto = self.texto_incorrecto
+                print("id" + str(idpreg))
+                print("e: " + str(e['value']) )
+                buenas+=1
 
             #si no llego nada no lo actualizo
             if nuevas_resps:
                 self.respuestas = nuevas_resps
 
             #puntaje
-            self.score = float(buenas/(malas+buenas))
+            self.score = 1
 
             if self.score > 0 and self.score < 1:
                 texto = self.texto_parcial
