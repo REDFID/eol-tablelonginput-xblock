@@ -64,7 +64,7 @@
                                 <p>{ respuestas.items[key] }</p>
                               {% else %}
                                 <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" >{ respuestas.items[key] }</textarea>
-                              {% end %}
+                              {% endif %}
                             {% else %}
                               <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" />
                             {% endif %}
