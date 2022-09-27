@@ -53,19 +53,17 @@
                       <div class="dtrow">
                           <div class="dtcell1">{{value.enunciado|safe}}</div>
                           <div class="dtcell2">
-                            {% for iter, ans in respuestas.items %}
-                              {% if iter|string() == key|string() %}
-                                {% if respondido %}
-                                  {% if no_mas_intentos %}
-                                    <p>{{ findeans }}</p>
-                                  {% else %}
-                                    <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" >{{ findeans }}</textarea>
-                                  {% endif %}
-                                {%endif%}
-                              {%endif%}
-                            {% endfor %}
-                            
-                            {% if not respondido %}
+                            {% if respondido %}
+                              {% for iter, ans in respuestas.items %}
+                                {% if iter|string() == key|string() %}
+                                    {% if no_mas_intentos %}
+                                      <p>{{ ans }}</p>
+                                    {% else %}
+                                      <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" >{{ ans }}</textarea>
+                                    {% endif %}
+                                  {%endif%}
+                              {% endfor %
+                            {% else %}
                               <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" />
                             {% endif %}
                           </div>
