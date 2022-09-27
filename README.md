@@ -11,4 +11,4 @@ XBlock to display "Suma y Sigue" and "Media" inputs questions in tables in the [
     > docker-compose run lms /openedx/requirements/eol-vof-xblock/.github/test.sh
 
 # Screenshots
-![Screenshot-example](vof/examples/04-11-2019.png?style=center)
+![Screenshot-example](vof/examples/example1.png?style=center)
