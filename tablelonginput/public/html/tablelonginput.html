@@ -53,10 +53,9 @@
                       <div class="dtrow">
                           <div class="dtcell1">{{value.enunciado|safe}}</div>
                           <div class="dtcell2">
-                            {% setvar "" as findeans %}
                             {% for iter, ans in respuestas.items %}
                               {% if iter == key %}
-                                {% setvar ans as findeans %}
+                                <p>ENCONTRADO</p>
                               {%endif%}
                             {% endfor %}
                             {% if respondido %}
