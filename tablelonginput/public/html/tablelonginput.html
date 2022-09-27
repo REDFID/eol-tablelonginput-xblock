@@ -53,9 +53,9 @@
                           <div class="dtcell2">
                             {% if respondido %}
                               {% if no_mas_intentos %}
-                                <p>{{ respuestas.items[key|string] }}</p>
+                                <p>{{ respuestas.items }}</p>
                               {% else %}
-                                <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" >{{ respuestas.items[key|string] }}</textarea>
+                                <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" >{{ respuestas.items }}</textarea>
                               {% endif %}
                             {% else %}
                               <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" />
