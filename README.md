@@ -16,3 +16,4 @@ XBlock to display "Suma y Sigue" and "Media" inputs questions in tables in the [
 
 # Screenshots
 ![Screenshot-example](tablelonginput/examples/example1.png?style=center)
+![Screenshot-example2](tablelonginput/examples/example2.png?style=center)
