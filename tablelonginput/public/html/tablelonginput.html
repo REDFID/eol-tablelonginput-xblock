@@ -1,5 +1,5 @@
 {% load i18n %}
-<div class="problem vof_block {{theme}} problems-wrapper">
+<div class="problem tli_block {{theme}} problems-wrapper">
   <h3 class="vof-header problem-header">{{ display_name }}</h3>
   <div class="problem-progress">{{ problem_progress }}</div>
   {% if show_correctness != 'never'  or indicator_class == 'unanswered' %}
@@ -27,14 +27,18 @@
                 <div class="dtcell1">{{value.enunciado|safe}}</div>
                 <div class="dtcell2">
                   {% if respondido %}
-                    {% if no_mas_intentos %}
-                      <p>{{ findeans }}</p>
-                    {% else %}
-                      <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" >{{ findeans }}</textarea>
+                  {% for iter, ans in respuestas.items %}
+                    {% if iter == key %}
+                        {% if no_mas_intentos %}
+                          {{ ans }}
+                        {% else %}
+                          <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" >{{ ans }}</textarea>
+                        {% endif %}
                     {% endif %}
-                  {% else %}
-                    <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" />
-                  {% endif %}
+                  {% endfor %}
+                {% else %}
+                  <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" />
+                {% endif %}
                 </div>
             </div>
       {% endfor %}
@@ -57,7 +61,7 @@
                               {% for iter, ans in respuestas.items %}
                                 {% if iter == key %}
                                     {% if no_mas_intentos %}
-                                      <p>{{ ans }}</p>
+                                      {{ ans }}
                                     {% else %}
                                       <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" >{{ ans }}</textarea>
                                     {% endif %}
@@ -82,14 +86,18 @@
                           <div class="dtcell1">{{value.enunciado|safe}}</div>
                           <div class="dtcell2">
                             {% if respondido %}
-                              {% if no_mas_intentos %}
-                                <p>{{ findeans }}</p>
-                              {% else %}
-                                <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" >{{ findeans }}</textarea>
+                            {% for iter, ans in respuestas.items %}
+                              {% if iter == key %}
+                                  {% if no_mas_intentos %}
+                                    {{ ans }}
+                                  {% else %}
+                                    <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" >{{ ans }}</textarea>
+                                  {% endif %}
                               {% endif %}
-                            {% else %}
-                              <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" />
-                            {% endif %}
+                            {% endfor %}
+                          {% else %}
+                            <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" />
+                          {% endif %}
                           </div>
                       </div>
       {% endfor %}

@@ -88,7 +88,7 @@ class tablelonginputXBlock(XBlock):
     theme = String(
         display_name = "Estilo",
         help = "Cambiar estilo de la pregunta",
-        default = "RedFid",
+        default = "SumaySigue",
         values = ["SumaySigue", "Media","RedFid"],
         scope = Scope.settings
     )
