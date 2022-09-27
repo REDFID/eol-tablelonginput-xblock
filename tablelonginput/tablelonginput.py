@@ -373,11 +373,8 @@ class tablelonginputXBlock(XBlock):
         nuevas_pregs = {}
         pregs = data.get('preguntas')
         for p in pregs:
-            valor = True
-            if p['valor'] == 'F':
-                valor = False
             #WARNING: Aquí aunque castee a int, queda como string la id, me rendi por eso ocupo string
-            nuevas_pregs[p['id']] = {'enunciado':p['enunciado'], 'valor': valor}
+            nuevas_pregs[p['id']] = {'enunciado':p['enunciado']}
 
         self.display_name = data.get('display_name')
         self.texto_verdadero = data.get('texto_verdadero')
