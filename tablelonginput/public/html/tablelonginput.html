@@ -28,9 +28,17 @@
                 <div class="dtcell2">
                   {% if respondido %}
                     {% if no_mas_intentos %}
-                      <p>{ respuestas.items }</p>
+                      {% for iter, item in respuestas.items %}
+                        {% if key == iter %}
+                          <p>{{ item }}<p>
+                        {% endif %}
+                      {% endfor %}
                     {% else %}
-                      <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" >{ respuestas.items }</textarea>
+                      {% for iter, item in respuestas.items %}
+                        {% if key == iter %}
+                          <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" >{ respuestas.items }</textarea>
+                        {% endif %}
+                      {% endfor %}
                     {% endif %}
                   {% else %}
                     <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" />
@@ -53,9 +61,17 @@
                           <div class="dtcell2">
                             {% if respondido %}
                               {% if no_mas_intentos %}
-                                <p>{{ respuestas.items }}</p>
+                                {% for iter, item in respuestas.items %}
+                                  {% if key == iter %}
+                                    <p>{{ item }}<p>
+                                  {% endif %}
+                                {% endfor %}
                               {% else %}
-                                <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" >{{ respuestas.items }}</textarea>
+                                {% for iter, item in respuestas.items %}
+                                  {% if key == iter %}
+                                    <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" >{ respuestas.items }</textarea>
+                                  {% endif %}
+                                {% endfor %}
                               {% endif %}
                             {% else %}
                               <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" />
@@ -77,9 +93,17 @@
                           <div class="dtcell2">
                             {% if respondido %}
                               {% if no_mas_intentos %}
-                                <p>{{ respuestas }}</p>
+                                {% for iter, item in respuestas.items %}
+                                  {% if key == iter %}
+                                    <p>{{ item }}<p>
+                                  {% endif %}
+                                {% endfor %}
                               {% else %}
-                                <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" >{{ respuestas }}</textarea>
+                                {% for iter, item in respuestas.items %}
+                                  {% if key == iter %}
+                                    <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" >{ respuestas.items }</textarea>
+                                  {% endif %}
+                                {% endfor %}
                               {% endif %}
                             {% else %}
                               <textarea class="student_answer"  pregunta-id="{{ key }}" name="{{ key }}_{{ location }}" />
@@ -94,8 +118,6 @@
 {% if value != 'nada'%}
   <p>{{key}} ] {{value}}<p>
 {% endif %}
-<p>{{ (respuestas.items)[0] }}</p>
-{% endfor %}
 <br/>
   <div class="divrespuestas">
       {% for key, value in respuestas.items %}
