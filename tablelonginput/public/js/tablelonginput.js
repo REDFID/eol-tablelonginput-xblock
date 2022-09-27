@@ -5,6 +5,7 @@ function TLIXBlock(runtime, element, settings) {
     var $element = $(element);
     var buttonCheck = $element.find('.check');
     var buttonVerRespuesta = $element.find('.ver_respuesta');
+    var inputs = $element.find('.student_answer');
     var botonesVoF = $element.find('.opcion');
     var lasRespuestas = $element.find('.lasrespuestas');
     var subFeedback = $element.find('.submission-feedback');
@@ -71,6 +72,7 @@ function TLIXBlock(runtime, element, settings) {
     }
 
     function showAnswers(result){
+        /*
         $.each( result.preguntas, function( key, value ) {
             if(value.valor){
                 $element.find('.opcV'+key).addClass('cuadroverde');
@@ -79,27 +81,21 @@ function TLIXBlock(runtime, element, settings) {
                 $element.find('.opcF'+key).addClass('cuadroverde');
             }
           });
+          */
     }
 
     var handlerUrl = runtime.handlerUrl(element, 'responder');
     var handlerUrlVerResp = runtime.handlerUrl(element, 'mostrar_respuesta');
 
-    botonesVoF.click(function(eventObject) {
+    
+    inputs.click(function(eventObject) {
         if(statusDiv.hasClass("unanswered") && !settings.is_past_due){
             buttonCheck.attr("disabled", false);
         }
         eventObject.preventDefault();
-        var pid = $(this).children("input[type=radio]").attr('pregunta-id');
-        $(this).children("input[type=radio]").prop('checked', true);
-        if($(this).hasClass('opcV')){
-            $(this).addClass('selv');
-            $element.find('.opcF'+pid).removeClass('self');
-        }
-        else{
-            $(this).addClass('self');
-            $element.find('.opcV'+pid).removeClass('selv');
-        }
+        console.log("Click");
     });
+    
 
     buttonCheck.click(function(eventObject) {
         eventObject.preventDefault();
@@ -143,7 +139,7 @@ function TLIXBlock(runtime, element, settings) {
                 type: "POST",
                 url: handlerUrlVerResp,
                 data: JSON.stringify({}),
-                success: showAnswers
+                //success: showAnswers
             });
         });
     }
