@@ -56,7 +56,7 @@
                             {% with findeans="My Page" %}
                               {% for iter, ans in respuestas.items %}
                                 {% if iter == key %}
-                                  {% set findeans = ans %}
+                                  {% findeans = ans %}
                                 {%endif%}
                               {% endfor %}
                               {% if respondido %}
