@@ -10,7 +10,7 @@ from opaque_keys.edx.locations import SlashSeparatedCourseKey
 
 from xblock.field_data import DictFieldData
 
-from .vof import VoFXBlock
+from .tablelonginput import tablelonginputXBlock
 
 class TestRequest(object):
     # pylint: disable=too-few-public-methods
@@ -21,7 +21,7 @@ class TestRequest(object):
     body = None
     success = None
 
-class VoFXblockTestCase(unittest.TestCase):
+class TliIXblockTestCase(unittest.TestCase):
     # pylint: disable=too-many-instance-attributes, too-many-public-methods
     """
     A complete suite of unit tests for the VoF XBlock
@@ -41,7 +41,7 @@ class VoFXblockTestCase(unittest.TestCase):
         )
         scope_ids = Mock()
         field_data = DictFieldData(kw)
-        xblock = VoFXBlock(runtime, field_data, scope_ids)
+        xblock = tablelonginputXBlock(runtime, field_data, scope_ids)
         xblock.xmodule_runtime = runtime
         return xblock
 
@@ -49,7 +49,7 @@ class VoFXblockTestCase(unittest.TestCase):
         """
         Creates an xblock
         """
-        self.xblock = VoFXblockTestCase.make_an_xblock()
+        self.xblock = TliIXblockTestCase.make_an_xblock()
 
     def test_validate_field_data(self):
         """
@@ -59,7 +59,7 @@ class VoFXblockTestCase(unittest.TestCase):
         self.assertEqual(self.xblock.score, 0.0)
         self.assertEqual(self.xblock.show_answer, 'Finalizado')
         self.assertEqual(self.xblock.texto_verdadero, 'V')
-        self.assertEqual(self.xblock.texto_falso, 'F')
+
         self.assertEqual(self.xblock.get_indicator_class(), 'unanswered')
         self.assertEqual(self.xblock.get_show_correctness(), 'always')
 

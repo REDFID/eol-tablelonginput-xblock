@@ -466,14 +466,14 @@ class tablelonginputXBlock(XBlock):
     def workbench_scenarios():
         """A canned scenario for display in the workbench."""
         return [
-            ("VoFXBlock",
-             """<vof/>
+            ("TliXBlock",
+             """<tli/>
              """),
             ("Multiple VoFXBlock",
              """<vertical_demo>
-                <vof/>
-                <vof/>
-                <vof/>
+                <tli/>
+                <tli/>
+                <tli/>
                 </vertical_demo>
              """),
         ]
